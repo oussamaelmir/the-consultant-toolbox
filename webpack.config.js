@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const urlDev = "https://localhost:58706/";
-const urlProd = "https://smart-controls.azurewebsites.net/"; // Replace with your actual Azure URL
+const urlProd = "the-consultant-toolbox.azurewebsites.net"; 
 
 module.exports = {
   mode: "production",
