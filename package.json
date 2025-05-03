@@ -6,7 +6,8 @@
     "build": "webpack --mode production",
     "start": "npx serve -s dist",
     "clean": "rm -rf dist",
-    "zip": "npm run build && cd dist && zip -r ../smart-controls-prod.zip ."
+    "zip": "npm run build && cd dist && zip -r ../smart-controls-prod.zip .",
+    "validate": "office-addin-manifest validate manifest.xml"
   },
   "dependencies": {
     "core-js": "^3.36.0",
