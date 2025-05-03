@@ -1,3 +1,2 @@
 [config]
-command = bash build.sh
 project = dist
