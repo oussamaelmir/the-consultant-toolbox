@@ -8,11 +8,11 @@
   <Id>1d88bdbc-5f38-4d4b-bb55-5f2074c1fb4f</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
-  <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Smart Controls" />
-  <Description DefaultValue="Smart Controls Add-in" />
-  <IconUrl DefaultValue="https://www.contoso.com/assets/smartcontracts-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://www.contoso.com/assets/smartcontracts-64.png" />
+  <DefaultLocale>en-US</DefaultLocale>›
+  <DisplayName DefaultValue="The Consultant Toolbox" />
+  <Description DefaultValue="The Consultant Toolbox Add-in" />
+  <IconUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/smartcontracts-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/smartcontracts-64.png" />
   <SupportUrl DefaultValue="https://www.contoso.com/help" />
 
   <AppDomains>
@@ -24,7 +24,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://www.contoso.com/taskpane.html" />
+    <SourceLocation DefaultValue="https://the-consultant-toolbox.azurewebsites.net/taskpane.html" />
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -706,112 +706,112 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="emptytextboxes.16x16" DefaultValue="https://www.contoso.com/assets/emptytextboxes-16.png" />
-        <bt:Image id="emptytextboxes.32x32" DefaultValue="https://www.contoso.com/assets/emptytextboxes-32.png" />
-        <bt:Image id="emptytextboxes.80x80" DefaultValue="https://www.contoso.com/assets/emptytextboxes-80.png" />
-        <bt:Image id="emptyentireslide.16x16" DefaultValue="https://www.contoso.com/assets/emptyentireslide-16.png" />
-        <bt:Image id="emptyentireslide.32x32" DefaultValue="https://www.contoso.com/assets/emptyentireslide-32.png" />
-        <bt:Image id="emptyentireslide.80x80" DefaultValue="https://www.contoso.com/assets/emptyentireslide-80.png" />
-        <bt:Image id="movetoend.16x16" DefaultValue="https://www.contoso.com/assets/movetoend-16.png" />
-        <bt:Image id="movetoend.32x32" DefaultValue="https://www.contoso.com/assets/movetoend-32.png" />
-        <bt:Image id="movetoend.80x80" DefaultValue="https://www.contoso.com/assets/movetoend-80.png" />
-        <bt:Image id="sameheight.16x16" DefaultValue="https://www.contoso.com/assets/sameheight-16.png" />
-        <bt:Image id="sameheight.32x32" DefaultValue="https://www.contoso.com/assets/sameheight-32.png" />
-        <bt:Image id="sameheight.80x80" DefaultValue="https://www.contoso.com/assets/sameheight-80.png" />
-        <bt:Image id="samewidth.16x16" DefaultValue="https://www.contoso.com/assets/samewidth-16.png" />
-        <bt:Image id="samewidth.32x32" DefaultValue="https://www.contoso.com/assets/samewidth-32.png" />
-        <bt:Image id="samewidth.80x80" DefaultValue="https://www.contoso.com/assets/samewidth-80.png" />
-        <bt:Image id="stackhorizontal.16x16" DefaultValue="https://www.contoso.com/assets/stackhorizontal-16.png" />
-        <bt:Image id="stackhorizontal.32x32" DefaultValue="https://www.contoso.com/assets/stackhorizontal-32.png" />
-        <bt:Image id="stackhorizontal.80x80" DefaultValue="https://www.contoso.com/assets/stackhorizontal-80.png" />
-        <bt:Image id="stackvertical.16x16" DefaultValue="https://www.contoso.com/assets/stackvertical-16.png" />
-        <bt:Image id="stackvertical.32x32" DefaultValue="https://www.contoso.com/assets/stackvertical-32.png" />
-        <bt:Image id="stackvertical.80x80" DefaultValue="https://www.contoso.com/assets/stackvertical-80.png" />
-        <bt:Image id="invert.16x16" DefaultValue="https://www.contoso.com/assets/invert-16.png" />
-        <bt:Image id="invert.32x32" DefaultValue="https://www.contoso.com/assets/invert-32.png" />
-        <bt:Image id="invert.80x80" DefaultValue="https://www.contoso.com/assets/invert-80.png" />
-        <bt:Image id="copyposition.16x16" DefaultValue="https://www.contoso.com/assets/copyposition-16.png" />
-        <bt:Image id="copyposition.32x32" DefaultValue="https://www.contoso.com/assets/copyposition-32.png" />
-        <bt:Image id="copyposition.80x80" DefaultValue="https://www.contoso.com/assets/copyposition-80.png" />
-        <bt:Image id="pasteposition.16x16" DefaultValue="https://www.contoso.com/assets/pasteposition-16.png" />
-        <bt:Image id="pasteposition.32x32" DefaultValue="https://www.contoso.com/assets/pasteposition-32.png" />
-        <bt:Image id="pasteposition.80x80" DefaultValue="https://www.contoso.com/assets/pasteposition-80.png" />
-        <bt:Image id="copydimensions.16x16" DefaultValue="https://www.contoso.com/assets/copydimensions-16.png" />
-        <bt:Image id="copydimensions.32x32" DefaultValue="https://www.contoso.com/assets/copydimensions-32.png" />
-        <bt:Image id="copydimensions.80x80" DefaultValue="https://www.contoso.com/assets/copydimensions-80.png" />
-        <bt:Image id="pastedimensions.16x16" DefaultValue="https://www.contoso.com/assets/pastedimensions-16.png" />
-        <bt:Image id="pastedimensions.32x32" DefaultValue="https://www.contoso.com/assets/pastedimensions-32.png" />
-        <bt:Image id="pastedimensions.80x80" DefaultValue="https://www.contoso.com/assets/pastedimensions-80.png" />
-        <bt:Image id="shapetotext.16x16" DefaultValue="https://www.contoso.com/assets/shapetotext-16.png" />
-        <bt:Image id="shapetotext.32x32" DefaultValue="https://www.contoso.com/assets/shapetotext-32.png" />
-        <bt:Image id="shapetotext.80x80" DefaultValue="https://www.contoso.com/assets/shapetotext-80.png" />
-        <bt:Image id="texttoshape.16x16" DefaultValue="https://www.contoso.com/assets/texttoshape-16.png" />
-        <bt:Image id="texttoshape.32x32" DefaultValue="https://www.contoso.com/assets/texttoshape-32.png" />
-        <bt:Image id="texttoshape.80x80" DefaultValue="https://www.contoso.com/assets/texttoshape-80.png" />
-        <bt:Image id="removemargins.16x16" DefaultValue="https://www.contoso.com/assets/removemargins-16.png" />
-        <bt:Image id="removemargins.32x32" DefaultValue="https://www.contoso.com/assets/removemargins-32.png" />
-        <bt:Image id="removemargins.80x80" DefaultValue="https://www.contoso.com/assets/removemargins-80.png" />
-        <bt:Image id="wraptext.16x16" DefaultValue="https://www.contoso.com/assets/wraptext-16.png" />
-        <bt:Image id="wraptext.32x32" DefaultValue="https://www.contoso.com/assets/wraptext-32.png" />
-        <bt:Image id="wraptext.80x80" DefaultValue="https://www.contoso.com/assets/wraptext-80.png" />
-        <bt:Image id="harveyball0.16x16" DefaultValue="https://www.contoso.com/assets/harveyball0-16.png" />
-        <bt:Image id="harveyball0.32x32" DefaultValue="https://www.contoso.com/assets/harveyball0-32.png" />
-        <bt:Image id="harveyball0.80x80" DefaultValue="https://www.contoso.com/assets/harveyball0-80.png" />
-        <bt:Image id="harveyball25.16x16" DefaultValue="https://www.contoso.com/assets/harveyball25-16.png" />
-        <bt:Image id="harveyball25.32x32" DefaultValue="https://www.contoso.com/assets/harveyball25-32.png" />
-        <bt:Image id="harveyball25.80x80" DefaultValue="https://www.contoso.com/assets/harveyball25-80.png" />
-        <bt:Image id="harveyball50r.16x16" DefaultValue="https://www.contoso.com/assets/harveyball50r-16.png" />
-        <bt:Image id="harveyball50r.32x32" DefaultValue="https://www.contoso.com/assets/harveyball50r-32.png" />
-        <bt:Image id="harveyball50r.80x80" DefaultValue="https://www.contoso.com/assets/harveyball50r-80.png" />
-        <bt:Image id="harveyball50l.16x16" DefaultValue="https://www.contoso.com/assets/harveyball50l-16.png" />
-        <bt:Image id="harveyball50l.32x32" DefaultValue="https://www.contoso.com/assets/harveyball50l-32.png" />
-        <bt:Image id="harveyball50l.80x80" DefaultValue="https://www.contoso.com/assets/harveyball50l-80.png" />
-        <bt:Image id="harveyball75.16x16" DefaultValue="https://www.contoso.com/assets/harveyball75-16.png" />
-        <bt:Image id="harveyball75.32x32" DefaultValue="https://www.contoso.com/assets/harveyball75-32.png" />
-        <bt:Image id="harveyball75.80x80" DefaultValue="https://www.contoso.com/assets/harveyball75-80.png" />
-        <bt:Image id="harveyball100.16x16" DefaultValue="https://www.contoso.com/assets/harveyball100-16.png" />
-        <bt:Image id="harveyball100.32x32" DefaultValue="https://www.contoso.com/assets/harveyball100-32.png" />
-        <bt:Image id="harveyball100.80x80" DefaultValue="https://www.contoso.com/assets/harveyball100-80.png" />
-        <bt:Image id="greenlight.16x16" DefaultValue="https://www.contoso.com/assets/greenlight-16.png" />
-        <bt:Image id="greenlight.32x32" DefaultValue="https://www.contoso.com/assets/greenlight-32.png" />
-        <bt:Image id="greenlight.80x80" DefaultValue="https://www.contoso.com/assets/greenlight-80.png" />
-        <bt:Image id="orangelight.16x16" DefaultValue="https://www.contoso.com/assets/orangelight-16.png" />
-        <bt:Image id="orangelight.32x32" DefaultValue="https://www.contoso.com/assets/orangelight-32.png" />
-        <bt:Image id="orangelight.80x80" DefaultValue="https://www.contoso.com/assets/orangelight-80.png" />
-        <bt:Image id="redlight.16x16" DefaultValue="https://www.contoso.com/assets/redlight-16.png" />
-        <bt:Image id="redlight.32x32" DefaultValue="https://www.contoso.com/assets/redlight-32.png" />
-        <bt:Image id="redlight.80x80" DefaultValue="https://www.contoso.com/assets/redlight-80.png" />
-        <bt:Image id="uparrow.16x16" DefaultValue="https://www.contoso.com/assets/uparrow-16.png" />
-        <bt:Image id="uparrow.32x32" DefaultValue="https://www.contoso.com/assets/uparrow-32.png" />
-        <bt:Image id="uparrow.80x80" DefaultValue="https://www.contoso.com/assets/uparrow-80.png" />
-        <bt:Image id="downarrow.16x16" DefaultValue="https://www.contoso.com/assets/downarrow-16.png" />
-        <bt:Image id="downarrow.32x32" DefaultValue="https://www.contoso.com/assets/downarrow-32.png" />
-        <bt:Image id="downarrow.80x80" DefaultValue="https://www.contoso.com/assets/downarrow-80.png" />
-        <bt:Image id="equalssign.16x16" DefaultValue="https://www.contoso.com/assets/equalssign-16.png" />
-        <bt:Image id="equalssign.32x32" DefaultValue="https://www.contoso.com/assets/equalssign-32.png" />
-        <bt:Image id="equalssign.80x80" DefaultValue="https://www.contoso.com/assets/equalssign-80.png" />
-        <bt:Image id="copystoryline.16x16" DefaultValue="https://www.contoso.com/assets/copystoryline-16.png" />
-        <bt:Image id="copystoryline.32x32" DefaultValue="https://www.contoso.com/assets/copystoryline-32.png" />
-        <bt:Image id="copystoryline.80x80" DefaultValue="https://www.contoso.com/assets/copystoryline-80.png" />
-        <bt:Image id="insertfootnote.16x16" DefaultValue="https://www.contoso.com/assets/insertfootnote-16.png" />
-        <bt:Image id="insertfootnote.32x32" DefaultValue="https://www.contoso.com/assets/insertfootnote-32.png" />
-        <bt:Image id="insertfootnote.80x80" DefaultValue="https://www.contoso.com/assets/insertfootnote-80.png" />
-        <bt:Image id="inserttag.16x16" DefaultValue="https://www.contoso.com/assets/inserttag-16.png" />
-        <bt:Image id="inserttag.32x32" DefaultValue="https://www.contoso.com/assets/inserttag-32.png" />
-        <bt:Image id="inserttag.80x80" DefaultValue="https://www.contoso.com/assets/inserttag-80.png" />
-        <bt:Image id="flaggenerator.16x16" DefaultValue="https://www.contoso.com/assets/flaggenerator-16.png" />
-        <bt:Image id="flaggenerator.32x32" DefaultValue="https://www.contoso.com/assets/flaggenerator-32.png" />
-        <bt:Image id="flaggenerator.80x80" DefaultValue="https://www.contoso.com/assets/flaggenerator-80.png" />
+        <bt:Image id="emptytextboxes.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-16.png" />
+        <bt:Image id="emptytextboxes.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-32.png" />
+        <bt:Image id="emptytextboxes.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-80.png" />
+        <bt:Image id="emptyentireslide.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptyentireslide-16.png" />
+        <bt:Image id="emptyentireslide.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptyentireslide-32.png" />
+        <bt:Image id="emptyentireslide.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptyentireslide-80.png" />
+        <bt:Image id="movetoend.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/movetoend-16.png" />
+        <bt:Image id="movetoend.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/movetoend-32.png" />
+        <bt:Image id="movetoend.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/movetoend-80.png" />
+        <bt:Image id="sameheight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/sameheight-16.png" />
+        <bt:Image id="sameheight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/sameheight-32.png" />
+        <bt:Image id="sameheight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/sameheight-80.png" />
+        <bt:Image id="samewidth.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/samewidth-16.png" />
+        <bt:Image id="samewidth.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/samewidth-32.png" />
+        <bt:Image id="samewidth.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/samewidth-80.png" />
+        <bt:Image id="stackhorizontal.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackhorizontal-16.png" />
+        <bt:Image id="stackhorizontal.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackhorizontal-32.png" />
+        <bt:Image id="stackhorizontal.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackhorizontal-80.png" />
+        <bt:Image id="stackvertical.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackvertical-16.png" />
+        <bt:Image id="stackvertical.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackvertical-32.png" />
+        <bt:Image id="stackvertical.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackvertical-80.png" />
+        <bt:Image id="invert.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/invert-16.png" />
+        <bt:Image id="invert.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/invert-32.png" />
+        <bt:Image id="invert.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/invert-80.png" />
+        <bt:Image id="copyposition.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copyposition-16.png" />
+        <bt:Image id="copyposition.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copyposition-32.png" />
+        <bt:Image id="copyposition.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copyposition-80.png" />
+        <bt:Image id="pasteposition.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pasteposition-16.png" />
+        <bt:Image id="pasteposition.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pasteposition-32.png" />
+        <bt:Image id="pasteposition.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pasteposition-80.png" />
+        <bt:Image id="copydimensions.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copydimensions-16.png" />
+        <bt:Image id="copydimensions.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copydimensions-32.png" />
+        <bt:Image id="copydimensions.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copydimensions-80.png" />
+        <bt:Image id="pastedimensions.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pastedimensions-16.png" />
+        <bt:Image id="pastedimensions.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pastedimensions-32.png" />
+        <bt:Image id="pastedimensions.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pastedimensions-80.png" />
+        <bt:Image id="shapetotext.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/shapetotext-16.png" />
+        <bt:Image id="shapetotext.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/shapetotext-32.png" />
+        <bt:Image id="shapetotext.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/shapetotext-80.png" />
+        <bt:Image id="texttoshape.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/texttoshape-16.png" />
+        <bt:Image id="texttoshape.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/texttoshape-32.png" />
+        <bt:Image id="texttoshape.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/texttoshape-80.png" />
+        <bt:Image id="removemargins.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/removemargins-16.png" />
+        <bt:Image id="removemargins.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/removemargins-32.png" />
+        <bt:Image id="removemargins.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/removemargins-80.png" />
+        <bt:Image id="wraptext.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/wraptext-16.png" />
+        <bt:Image id="wraptext.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/wraptext-32.png" />
+        <bt:Image id="wraptext.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/wraptext-80.png" />
+        <bt:Image id="harveyball0.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball0-16.png" />
+        <bt:Image id="harveyball0.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball0-32.png" />
+        <bt:Image id="harveyball0.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball0-80.png" />
+        <bt:Image id="harveyball25.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball25-16.png" />
+        <bt:Image id="harveyball25.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball25-32.png" />
+        <bt:Image id="harveyball25.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball25-80.png" />
+        <bt:Image id="harveyball50r.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50r-16.png" />
+        <bt:Image id="harveyball50r.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50r-32.png" />
+        <bt:Image id="harveyball50r.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50r-80.png" />
+        <bt:Image id="harveyball50l.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50l-16.png" />
+        <bt:Image id="harveyball50l.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50l-32.png" />
+        <bt:Image id="harveyball50l.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50l-80.png" />
+        <bt:Image id="harveyball75.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball75-16.png" />
+        <bt:Image id="harveyball75.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball75-32.png" />
+        <bt:Image id="harveyball75.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball75-80.png" />
+        <bt:Image id="harveyball100.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball100-16.png" />
+        <bt:Image id="harveyball100.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball100-32.png" />
+        <bt:Image id="harveyball100.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball100-80.png" />
+        <bt:Image id="greenlight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/greenlight-16.png" />
+        <bt:Image id="greenlight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/greenlight-32.png" />
+        <bt:Image id="greenlight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/greenlight-80.png" />
+        <bt:Image id="orangelight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/orangelight-16.png" />
+        <bt:Image id="orangelight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/orangelight-32.png" />
+        <bt:Image id="orangelight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/orangelight-80.png" />
+        <bt:Image id="redlight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/redlight-16.png" />
+        <bt:Image id="redlight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/redlight-32.png" />
+        <bt:Image id="redlight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/redlight-80.png" />
+        <bt:Image id="uparrow.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/uparrow-16.png" />
+        <bt:Image id="uparrow.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/uparrow-32.png" />
+        <bt:Image id="uparrow.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/uparrow-80.png" />
+        <bt:Image id="downarrow.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/downarrow-16.png" />
+        <bt:Image id="downarrow.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/downarrow-32.png" />
+        <bt:Image id="downarrow.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/downarrow-80.png" />
+        <bt:Image id="equalssign.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/equalssign-16.png" />
+        <bt:Image id="equalssign.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/equalssign-32.png" />
+        <bt:Image id="equalssign.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/equalssign-80.png" />
+        <bt:Image id="copystoryline.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copystoryline-16.png" />
+        <bt:Image id="copystoryline.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copystoryline-32.png" />
+        <bt:Image id="copystoryline.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copystoryline-80.png" />
+        <bt:Image id="insertfootnote.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/insertfootnote-16.png" />
+        <bt:Image id="insertfootnote.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/insertfootnote-32.png" />
+        <bt:Image id="insertfootnote.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/insertfootnote-80.png" />
+        <bt:Image id="inserttag.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/inserttag-16.png" />
+        <bt:Image id="inserttag.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/inserttag-32.png" />
+        <bt:Image id="inserttag.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/inserttag-80.png" />
+        <bt:Image id="flaggenerator.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/flaggenerator-16.png" />
+        <bt:Image id="flaggenerator.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/flaggenerator-32.png" />
+        <bt:Image id="flaggenerator.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/flaggenerator-80.png" />
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Commands.Url" DefaultValue="https://www.contoso.com/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://www.contoso.com/taskpane.html" />
-        <bt:Url id="Flags.Url" DefaultValue="https://www.contoso.com/flags.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/taskpane.html" />
+        <bt:Url id="Flags.Url" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/flags.html" />
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Welcome to Smart Controls!" />
-        <bt:String id="Tab.Label" DefaultValue="Smart Controls" />
+        <bt:String id="GetStarted.Title" DefaultValue="Welcome to The Consultant Toolbox!" />
+        <bt:String id="Tab.Label" DefaultValue="The Consultant Toolbox" />
         <bt:String id="TextGroup.Label" DefaultValue="Text" />
         <bt:String id="EmptyTextBoxesButton.Label" DefaultValue="Empty Text Boxes" />
         <bt:String id="EmptyEntireSlideButton.Label" DefaultValue="Empty Entire Slide" />
@@ -856,7 +856,7 @@
         <bt:String id="TaskPaneGroup.Label" DefaultValue="Task Pane Tools" />
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Click a button to start using Smart Controls." />
+        <bt:String id="GetStarted.Description" DefaultValue="Click a button to start using The Consultant Toolbox." />
         <bt:String id="EmptyTextBoxesButton.Tooltip" DefaultValue="Clear content from selected text boxes." />
         <bt:String id="EmptyEntireSlideButton.Tooltip" DefaultValue="Clear all text content from the current slide." />
         <bt:String id="SameSizeButton.Tooltip" DefaultValue="Reshapes the selected items to the same size as the first selected." />
