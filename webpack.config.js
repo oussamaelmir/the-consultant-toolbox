@@ -64,13 +64,8 @@ module.exports = {
           from: "assets/*",
           to: "assets/[name][ext]",
         },
-        { 
-          from: "src/support/index.html", 
-          to: "support" },
-        {
-          from: "src/privacy/index.html",
-          to: "privacy"
-        },
+        { from: "src/support/index.html", to: "support.html" },
+        { from: "src/privacy/index.html", to: "privacy.html" },
         {
           from: "manifest*.xml",
           to: "[name][ext]",
