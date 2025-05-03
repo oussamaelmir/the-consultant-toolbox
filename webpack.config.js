@@ -66,6 +66,7 @@ module.exports = {
         },
         { from: "src/support/index.html", to: "support.html" },
         { from: "src/privacy/index.html", to: "privacy.html" },
+        { from: "web.config", to: "web.config" },
         {
           from: "manifest*.xml",
           to: "[name][ext]",
