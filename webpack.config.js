@@ -2,7 +2,7 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const urlDev = "https://localhost:3000/";
+const urlDev = "https://localhost:58706/";
 const urlProd = "https://smart-controls.azurewebsites.net/"; // Replace with your actual Azure URL
 
 module.exports = {
