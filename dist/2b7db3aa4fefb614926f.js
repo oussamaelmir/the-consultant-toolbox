@@ -1,0 +1,1 @@
+!function(){"use strict";Office.onReady((function(){console.log("Office JS ready!")}))}();

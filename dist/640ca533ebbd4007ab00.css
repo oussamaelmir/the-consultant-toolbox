@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+}
+
+/* Header with gradient background */
+#header {
+  background: linear-gradient(135deg, #6d9eeb, #3b79d6);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#header h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+#header p {
+  font-size: 16px;
+}
+
+/* Search bar styling */
+#searchContainer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#searchInput {
+  width: 90%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Countries grid */
+#countriesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.countryCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.countryCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.countryCard.selected {
+  border: 2px solid #ff9800;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+}
+
+.countryCard img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.countryCard p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Empty state message */
+#emptyState {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+#emptyState.hidden {
+  display: none;
+}
+
+/* Flag preview area */
+#flagDisplay {
+  background: #fff;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#flagDisplay.hidden {
+  display: none;
+}
+
+#flagDisplay h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+#flagDisplay img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

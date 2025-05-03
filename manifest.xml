@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+
+  <Id>1d88bdbc-5f38-4d4b-bb55-5f2074c1fb4f</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Contoso</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>›
+  <DisplayName DefaultValue="The Consultant Toolbox" />
+  <Description DefaultValue="The Consultant Toolbox Add-in" />
+  <IconUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/smartcontracts-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/smartcontracts-64.png" />
+  <SupportUrl DefaultValue="https://www.contoso.com/help" />
+
+  <AppDomains>
+    <AppDomain>https://www.contoso.com</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Presentation" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://the-consultant-toolbox.azurewebsites.net/taskpane.html" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+    xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Presentation">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title" />
+            <Description resid="GetStarted.Description" />
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl" />
+          </GetStarted>
+          <FunctionFile resid="Commands.Url" />
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="SmartControls.CustomTab">
+              <Group id="TextGroup">
+                <Label resid="TextGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="emptytextboxes.16x16" />
+                  <bt:Image size="32" resid="emptytextboxes.32x32" />
+                  <bt:Image size="80" resid="emptytextboxes.80x80" />
+                </Icon>
+
+                <!-- Empty Text Boxes button -->
+                <Control xsi:type="Button" id="EmptyTextBoxesButton">
+                  <Label resid="EmptyTextBoxesButton.Label" />
+                  <Supertip>
+                    <Title resid="EmptyTextBoxesButton.Label" />
+                    <Description resid="EmptyTextBoxesButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="emptytextboxes.16x16" />
+                    <bt:Image size="32" resid="emptytextboxes.32x32" />
+                    <bt:Image size="80" resid="emptytextboxes.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>emptyTextBoxes</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Empty Entire Slide button -->
+                <Control xsi:type="Button" id="EmptyEntireSlideButton">
+                  <Label resid="EmptyEntireSlideButton.Label" />
+                  <Supertip>
+                    <Title resid="EmptyEntireSlideButton.Label" />
+                    <Description resid="EmptyEntireSlideButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="emptyentireslide.16x16" />
+                    <bt:Image size="32" resid="emptyentireslide.32x32" />
+                    <bt:Image size="80" resid="emptyentireslide.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>emptyEntireSlide</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+
+              <Group id="SlideEffectsGroup">
+                <Label resid="SlideEffectsGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="movetoend.16x16" />
+                  <bt:Image size="32" resid="movetoend.32x32" />
+                  <bt:Image size="80" resid="movetoend.80x80" />
+                </Icon>
+
+                <!-- Same Size button -->
+                <Control xsi:type="Button" id="SameSizeButton">
+                  <Label resid="SameSizeButton.Label" />
+                  <Supertip>
+                    <Title resid="SameSizeButton.Label" />
+                    <Description resid="SameSizeButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="movetoend.16x16" />
+                    <bt:Image size="32" resid="movetoend.32x32" />
+                    <bt:Image size="80" resid="movetoend.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>equalizeSize</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Same Height button -->
+                <Control xsi:type="Button" id="SameHeightButton">
+                  <Label resid="SameHeightButton.Label" />
+                  <Supertip>
+                    <Title resid="SameHeightButton.Label" />
+                    <Description resid="SameHeightButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="sameheight.16x16" />
+                    <bt:Image size="32" resid="sameheight.32x32" />
+                    <bt:Image size="80" resid="sameheight.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>equalizeHeight</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Same Width button -->
+                <Control xsi:type="Button" id="SameWidthButton">
+                  <Label resid="SameWidthButton.Label" />
+                  <Supertip>
+                    <Title resid="SameWidthButton.Label" />
+                    <Description resid="SameWidthButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="samewidth.16x16" />
+                    <bt:Image size="32" resid="samewidth.32x32" />
+                    <bt:Image size="80" resid="samewidth.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>equalizeWidth</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Stack Elements Horizontally button -->
+                <Control xsi:type="Button" id="StackHorizontal">
+                  <Label resid="StackHorizontal.Label" />
+                  <Supertip>
+                    <Title resid="StackHorizontal.Label" />
+                    <Description resid="StackHorizontal.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="stackhorizontal.16x16" />
+                    <bt:Image size="32" resid="stackhorizontal.32x32" />
+                    <bt:Image size="80" resid="stackhorizontal.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>stackHorizontally</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Stack Elements Vertically button -->
+                <Control xsi:type="Button" id="StackVertical">
+                  <Label resid="StackVertical.Label" />
+                  <Supertip>
+                    <Title resid="StackVertical.Label" />
+                    <Description resid="StackVertical.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="stackvertical.16x16" />
+                    <bt:Image size="32" resid="stackvertical.32x32" />
+                    <bt:Image size="80" resid="stackvertical.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>stackVertically</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Invert Positions button -->
+                <Control xsi:type="Button" id="InvertPositions">
+                  <Label resid="InvertPositions.Label" />
+                  <Supertip>
+                    <Title resid="InvertPositions.Label" />
+                    <Description resid="InvertPositions.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="invert.16x16" />
+                    <bt:Image size="32" resid="invert.32x32" />
+                    <bt:Image size="80" resid="invert.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>invertPositions</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Copy Position button -->
+                <Control xsi:type="Button" id="CopyPosition">
+                  <Label resid="CopyPosition.Label" />
+                  <Supertip>
+                    <Title resid="CopyPosition.Label" />
+                    <Description resid="CopyPosition.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="copyposition.16x16" />
+                    <bt:Image size="32" resid="copyposition.32x32" />
+                    <bt:Image size="80" resid="copyposition.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>copyPosition</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Paste Position button -->
+                <Control xsi:type="Button" id="PastePosition">
+                  <Label resid="PastePosition.Label" />
+                  <Supertip>
+                    <Title resid="PastePosition.Label" />
+                    <Description resid="PastePosition.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="pasteposition.16x16" />
+                    <bt:Image size="32" resid="pasteposition.32x32" />
+                    <bt:Image size="80" resid="pasteposition.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>pastePosition</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Copy Dimensions button -->
+                <Control xsi:type="Button" id="CopyDimensions">
+                  <Label resid="CopyDimensions.Label" />
+                  <Supertip>
+                    <Title resid="CopyDimensions.Label" />
+                    <Description resid="CopyDimensions.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="copydimensions.16x16" />
+                    <bt:Image size="32" resid="copydimensions.32x32" />
+                    <bt:Image size="80" resid="copydimensions.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>copyDimensions</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Paste Dimensions button -->
+                <Control xsi:type="Button" id="PasteDimensions">
+                  <Label resid="PasteDimensions.Label" />
+                  <Supertip>
+                    <Title resid="PasteDimensions.Label" />
+                    <Description resid="PasteDimensions.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="pastedimensions.16x16" />
+                    <bt:Image size="32" resid="pastedimensions.32x32" />
+                    <bt:Image size="80" resid="pastedimensions.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>pasteDimensions</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Auto Fit Shape to Text button -->
+                <Control xsi:type="Button" id="AutoFitShapeToText">
+                  <Label resid="AutoFitShapeToText.Label" />
+                  <Supertip>
+                    <Title resid="AutoFitShapeToText.Label" />
+                    <Description resid="AutoFitShapeToText.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="shapetotext.16x16" />
+                    <bt:Image size="32" resid="shapetotext.32x32" />
+                    <bt:Image size="80" resid="shapetotext.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>autoFitShapeToText</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Auto Fit Text to Shape button -->
+                <Control xsi:type="Button" id="AutoFitTextToShape">
+                  <Label resid="AutoFitTextToShape.Label" />
+                  <Supertip>
+                    <Title resid="AutoFitTextToShape.Label" />
+                    <Description resid="AutoFitTextToShape.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="texttoshape.16x16" />
+                    <bt:Image size="32" resid="texttoshape.32x32" />
+                    <bt:Image size="80" resid="texttoshape.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>autoFitTextToShape</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+
+              <Group id="QuickTweaksGroup">
+                <Label resid="QuickTweaksGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="movetoend.16x16" />
+                  <bt:Image size="32" resid="movetoend.32x32" />
+                  <bt:Image size="80" resid="movetoend.80x80" />
+                </Icon>
+
+                <!-- Remove Margins button -->
+                <Control xsi:type="Button" id="RemoveMargins">
+                  <Label resid="RemoveMargins.Label" />
+                  <Supertip>
+                    <Title resid="RemoveMargins.Label" />
+                    <Description resid="RemoveMargins.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="removemargins.16x16" />
+                    <bt:Image size="32" resid="removemargins.32x32" />
+                    <bt:Image size="80" resid="removemargins.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>removeMargins</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Wraps/Unwraps Text button -->
+                <Control xsi:type="Button" id="WrapText">
+                  <Label resid="WrapText.Label" />
+                  <Supertip>
+                    <Title resid="WrapText.Label" />
+                    <Description resid="WrapText.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="wraptext.16x16" />
+                    <bt:Image size="32" resid="wraptext.32x32" />
+                    <bt:Image size="80" resid="wraptext.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>toggleTextWrap</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+
+              <Group id="HarveyBalls">
+                <Label resid="HarveyBalls.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="movetoend.16x16" />
+                  <bt:Image size="32" resid="movetoend.32x32" />
+                  <bt:Image size="80" resid="movetoend.80x80" />
+                </Icon>
+
+                <!-- Insert Empty Harvey Ball (0%) button -->
+                <Control xsi:type="Button" id="HarveyBall0">
+                  <Label resid="HarveyBall0.Label" />
+                  <Supertip>
+                    <Title resid="HarveyBall0.Label" />
+                    <Description resid="HarveyBall0.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="harveyball0.16x16" />
+                    <bt:Image size="32" resid="harveyball0.32x32" />
+                    <bt:Image size="80" resid="harveyball0.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertHarvey0</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Empty Harvey Ball (25%) button -->
+                <Control xsi:type="Button" id="HarveyBall25">
+                  <Label resid="HarveyBall25.Label" />
+                  <Supertip>
+                    <Title resid="HarveyBall25.Label" />
+                    <Description resid="HarveyBall25.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="harveyball25.16x16" />
+                    <bt:Image size="32" resid="harveyball25.32x32" />
+                    <bt:Image size="80" resid="harveyball25.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertHarvey25</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Empty Harvey Ball (50%) button -->
+                <Control xsi:type="Button" id="HarveyBall50r">
+                  <Label resid="HarveyBall50r.Label" />
+                  <Supertip>
+                    <Title resid="HarveyBall50r.Label" />
+                    <Description resid="HarveyBall50r.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="harveyball50r.16x16" />
+                    <bt:Image size="32" resid="harveyball50r.32x32" />
+                    <bt:Image size="80" resid="harveyball50r.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertHarvey50r</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Empty Harvey Ball (50%) button -->
+                <Control xsi:type="Button" id="HarveyBall50l">
+                  <Label resid="HarveyBall50l.Label" />
+                  <Supertip>
+                    <Title resid="HarveyBall50l.Label" />
+                    <Description resid="HarveyBall50l.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="harveyball50l.16x16" />
+                    <bt:Image size="32" resid="harveyball50l.32x32" />
+                    <bt:Image size="80" resid="harveyball50l.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertHarvey50l</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Empty Harvey Ball (75%) button -->
+                <Control xsi:type="Button" id="HarveyBall75">
+                  <Label resid="HarveyBall75.Label" />
+                  <Supertip>
+                    <Title resid="HarveyBall75.Label" />
+                    <Description resid="HarveyBall75.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="harveyball75.16x16" />
+                    <bt:Image size="32" resid="harveyball75.32x32" />
+                    <bt:Image size="80" resid="harveyball75.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertHarvey75</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Empty Harvey Ball (100%) button -->
+                <Control xsi:type="Button" id="HarveyBall100">
+                  <Label resid="HarveyBall100.Label" />
+                  <Supertip>
+                    <Title resid="HarveyBall100.Label" />
+                    <Description resid="HarveyBall100.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="harveyball100.16x16" />
+                    <bt:Image size="32" resid="harveyball100.32x32" />
+                    <bt:Image size="80" resid="harveyball100.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertHarvey100</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Green Light button -->
+                <Control xsi:type="Button" id="GreenLight">
+                  <Label resid="GreenLight.Label" />
+                  <Supertip>
+                    <Title resid="GreenLight.Label" />
+                    <Description resid="GreenLight.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="greenlight.16x16" />
+                    <bt:Image size="32" resid="greenlight.32x32" />
+                    <bt:Image size="80" resid="greenlight.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertGreenLight</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Orange Light button -->
+                <Control xsi:type="Button" id="OrangeLight">
+                  <Label resid="OrangeLight.Label" />
+                  <Supertip>
+                    <Title resid="OrangeLight.Label" />
+                    <Description resid="OrangeLight.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="orangelight.16x16" />
+                    <bt:Image size="32" resid="orangelight.32x32" />
+                    <bt:Image size="80" resid="orangelight.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertOrangeLight</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Red Light button -->
+                <Control xsi:type="Button" id="RedLight">
+                  <Label resid="RedLight.Label" />
+                  <Supertip>
+                    <Title resid="RedLight.Label" />
+                    <Description resid="RedLight.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="redlight.16x16" />
+                    <bt:Image size="32" resid="redlight.32x32" />
+                    <bt:Image size="80" resid="redlight.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertRedLight</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Up Arrow button -->
+                <Control xsi:type="Button" id="UpArrow">
+                  <Label resid="UpArrow.Label" />
+                  <Supertip>
+                    <Title resid="UpArrow.Label" />
+                    <Description resid="UpArrow.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="uparrow.16x16" />
+                    <bt:Image size="32" resid="uparrow.32x32" />
+                    <bt:Image size="80" resid="uparrow.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertUpArrow</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Down Arrow button -->
+                <Control xsi:type="Button" id="DownArrow">
+                  <Label resid="DownArrow.Label" />
+                  <Supertip>
+                    <Title resid="DownArrow.Label" />
+                    <Description resid="DownArrow.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="downarrow.16x16" />
+                    <bt:Image size="32" resid="downarrow.32x32" />
+                    <bt:Image size="80" resid="downarrow.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertDownArrow</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Equals button -->
+                <Control xsi:type="Button" id="EqualsSign">
+                  <Label resid="EqualsSign.Label" />
+                  <Supertip>
+                    <Title resid="EqualsSign.Label" />
+                    <Description resid="EqualsSign.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="equalssign.16x16" />
+                    <bt:Image size="32" resid="equalssign.32x32" />
+                    <bt:Image size="80" resid="equalssign.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>insertEqualsSign</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+
+              <Group id="ClipboardGroup">
+                <Label resid="ClipboardGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="movetoend.16x16" />
+                  <bt:Image size="32" resid="movetoend.32x32" />
+                  <bt:Image size="80" resid="movetoend.80x80" />
+                </Icon>
+
+                <!-- Copy Storyline button -->
+                <Control xsi:type="Button" id="CopyStoryline">
+                  <Label resid="CopyStoryline.Label" />
+                  <Supertip>
+                    <Title resid="CopyStoryline.Label" />
+                    <Description resid="CopyStoryline.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="copystoryline.16x16" />
+                    <bt:Image size="32" resid="copystoryline.32x32" />
+                    <bt:Image size="80" resid="copystoryline.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>createPostItNote</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Insert Footbote button -->
+                <Control xsi:type="Button" id="InsertFootnote">
+                  <Label resid="InsertFootnote.Label" />
+                  <Supertip>
+                    <Title resid="InsertFootnote.Label" />
+                    <Description resid="InsertFootnote.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="insertfootnote.16x16" />
+                    <bt:Image size="32" resid="insertfootnote.32x32" />
+                    <bt:Image size="80" resid="insertfootnote.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>InsertFootnote</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Create PRELIMINARY tag button -->
+                <Control xsi:type="Button" id="InsertPrelim">
+                  <Label resid="InsertPrelim.Label" />
+                  <Supertip>
+                    <Title resid="InsertPrelim.Label" />
+                    <Description resid="InsertPrelim.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="inserttag.16x16" />
+                    <bt:Image size="32" resid="inserttag.32x32" />
+                    <bt:Image size="80" resid="inserttag.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>createPreliminaryStamp</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Create EXAMPLE tag button -->
+                <Control xsi:type="Button" id="InsertExample">
+                  <Label resid="InsertExample.Label" />
+                  <Supertip>
+                    <Title resid="InsertExample.Label" />
+                    <Description resid="InsertExample.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="inserttag.16x16" />
+                    <bt:Image size="32" resid="inserttag.32x32" />
+                    <bt:Image size="80" resid="inserttag.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>createExampleStamp</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Create EXECUTIVE SUMMARY tag button -->
+                <Control xsi:type="Button" id="InsertExecSum">
+                  <Label resid="InsertExecSum.Label" />
+                  <Supertip>
+                    <Title resid="InsertExecSum.Label" />
+                    <Description resid="InsertExecSum.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="inserttag.16x16" />
+                    <bt:Image size="32" resid="inserttag.32x32" />
+                    <bt:Image size="80" resid="inserttag.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>createExecSumStamp</FunctionName>
+                  </Action>
+                </Control>
+
+                <!-- Create DRAFT tag button -->
+                <Control xsi:type="Button" id="InsertDraft">
+                  <Label resid="InsertDraft.Label" />
+                  <Supertip>
+                    <Title resid="InsertDraft.Label" />
+                    <Description resid="InsertDraft.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="inserttag.16x16" />
+                    <bt:Image size="32" resid="inserttag.32x32" />
+                    <bt:Image size="80" resid="inserttag.80x80" />
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>createDraftStamp</FunctionName>
+                  </Action>
+                </Control>
+
+              </Group>
+
+              <Group id="TaskPaneGroup">
+                <Label resid="TaskPaneGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="movetoend.16x16" />
+                  <bt:Image size="32" resid="movetoend.32x32" />
+                  <bt:Image size="80" resid="movetoend.80x80" />
+                </Icon>
+
+                <!-- Creates flags button -->
+                <Control xsi:type="Button" id="FlagGenerator">
+                  <Label resid="FlagGenerator.Label" />
+                  <Supertip>
+                    <Title resid="FlagGenerator.Label" />
+                    <Description resid="FlagGenerator.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="flaggenerator.16x16" />
+                    <bt:Image size="32" resid="flaggenerator.32x32" />
+                    <bt:Image size="80" resid="flaggenerator.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Flags.Url"/>
+                  </Action>
+                </Control>
+
+              </Group>
+              <Label resid="Tab.Label" />
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="emptytextboxes.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-16.png" />
+        <bt:Image id="emptytextboxes.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-32.png" />
+        <bt:Image id="emptytextboxes.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-80.png" />
+        <bt:Image id="emptyentireslide.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptyentireslide-16.png" />
+        <bt:Image id="emptyentireslide.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptyentireslide-32.png" />
+        <bt:Image id="emptyentireslide.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptyentireslide-80.png" />
+        <bt:Image id="movetoend.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/movetoend-16.png" />
+        <bt:Image id="movetoend.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/movetoend-32.png" />
+        <bt:Image id="movetoend.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/movetoend-80.png" />
+        <bt:Image id="sameheight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/sameheight-16.png" />
+        <bt:Image id="sameheight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/sameheight-32.png" />
+        <bt:Image id="sameheight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/sameheight-80.png" />
+        <bt:Image id="samewidth.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/samewidth-16.png" />
+        <bt:Image id="samewidth.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/samewidth-32.png" />
+        <bt:Image id="samewidth.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/samewidth-80.png" />
+        <bt:Image id="stackhorizontal.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackhorizontal-16.png" />
+        <bt:Image id="stackhorizontal.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackhorizontal-32.png" />
+        <bt:Image id="stackhorizontal.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackhorizontal-80.png" />
+        <bt:Image id="stackvertical.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackvertical-16.png" />
+        <bt:Image id="stackvertical.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackvertical-32.png" />
+        <bt:Image id="stackvertical.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/stackvertical-80.png" />
+        <bt:Image id="invert.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/invert-16.png" />
+        <bt:Image id="invert.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/invert-32.png" />
+        <bt:Image id="invert.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/invert-80.png" />
+        <bt:Image id="copyposition.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copyposition-16.png" />
+        <bt:Image id="copyposition.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copyposition-32.png" />
+        <bt:Image id="copyposition.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copyposition-80.png" />
+        <bt:Image id="pasteposition.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pasteposition-16.png" />
+        <bt:Image id="pasteposition.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pasteposition-32.png" />
+        <bt:Image id="pasteposition.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pasteposition-80.png" />
+        <bt:Image id="copydimensions.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copydimensions-16.png" />
+        <bt:Image id="copydimensions.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copydimensions-32.png" />
+        <bt:Image id="copydimensions.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copydimensions-80.png" />
+        <bt:Image id="pastedimensions.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pastedimensions-16.png" />
+        <bt:Image id="pastedimensions.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pastedimensions-32.png" />
+        <bt:Image id="pastedimensions.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/pastedimensions-80.png" />
+        <bt:Image id="shapetotext.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/shapetotext-16.png" />
+        <bt:Image id="shapetotext.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/shapetotext-32.png" />
+        <bt:Image id="shapetotext.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/shapetotext-80.png" />
+        <bt:Image id="texttoshape.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/texttoshape-16.png" />
+        <bt:Image id="texttoshape.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/texttoshape-32.png" />
+        <bt:Image id="texttoshape.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/texttoshape-80.png" />
+        <bt:Image id="removemargins.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/removemargins-16.png" />
+        <bt:Image id="removemargins.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/removemargins-32.png" />
+        <bt:Image id="removemargins.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/removemargins-80.png" />
+        <bt:Image id="wraptext.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/wraptext-16.png" />
+        <bt:Image id="wraptext.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/wraptext-32.png" />
+        <bt:Image id="wraptext.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/wraptext-80.png" />
+        <bt:Image id="harveyball0.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball0-16.png" />
+        <bt:Image id="harveyball0.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball0-32.png" />
+        <bt:Image id="harveyball0.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball0-80.png" />
+        <bt:Image id="harveyball25.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball25-16.png" />
+        <bt:Image id="harveyball25.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball25-32.png" />
+        <bt:Image id="harveyball25.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball25-80.png" />
+        <bt:Image id="harveyball50r.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50r-16.png" />
+        <bt:Image id="harveyball50r.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50r-32.png" />
+        <bt:Image id="harveyball50r.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50r-80.png" />
+        <bt:Image id="harveyball50l.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50l-16.png" />
+        <bt:Image id="harveyball50l.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50l-32.png" />
+        <bt:Image id="harveyball50l.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball50l-80.png" />
+        <bt:Image id="harveyball75.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball75-16.png" />
+        <bt:Image id="harveyball75.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball75-32.png" />
+        <bt:Image id="harveyball75.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball75-80.png" />
+        <bt:Image id="harveyball100.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball100-16.png" />
+        <bt:Image id="harveyball100.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball100-32.png" />
+        <bt:Image id="harveyball100.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/harveyball100-80.png" />
+        <bt:Image id="greenlight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/greenlight-16.png" />
+        <bt:Image id="greenlight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/greenlight-32.png" />
+        <bt:Image id="greenlight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/greenlight-80.png" />
+        <bt:Image id="orangelight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/orangelight-16.png" />
+        <bt:Image id="orangelight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/orangelight-32.png" />
+        <bt:Image id="orangelight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/orangelight-80.png" />
+        <bt:Image id="redlight.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/redlight-16.png" />
+        <bt:Image id="redlight.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/redlight-32.png" />
+        <bt:Image id="redlight.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/redlight-80.png" />
+        <bt:Image id="uparrow.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/uparrow-16.png" />
+        <bt:Image id="uparrow.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/uparrow-32.png" />
+        <bt:Image id="uparrow.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/uparrow-80.png" />
+        <bt:Image id="downarrow.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/downarrow-16.png" />
+        <bt:Image id="downarrow.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/downarrow-32.png" />
+        <bt:Image id="downarrow.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/downarrow-80.png" />
+        <bt:Image id="equalssign.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/equalssign-16.png" />
+        <bt:Image id="equalssign.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/equalssign-32.png" />
+        <bt:Image id="equalssign.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/equalssign-80.png" />
+        <bt:Image id="copystoryline.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copystoryline-16.png" />
+        <bt:Image id="copystoryline.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copystoryline-32.png" />
+        <bt:Image id="copystoryline.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/copystoryline-80.png" />
+        <bt:Image id="insertfootnote.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/insertfootnote-16.png" />
+        <bt:Image id="insertfootnote.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/insertfootnote-32.png" />
+        <bt:Image id="insertfootnote.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/insertfootnote-80.png" />
+        <bt:Image id="inserttag.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/inserttag-16.png" />
+        <bt:Image id="inserttag.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/inserttag-32.png" />
+        <bt:Image id="inserttag.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/inserttag-80.png" />
+        <bt:Image id="flaggenerator.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/flaggenerator-16.png" />
+        <bt:Image id="flaggenerator.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/flaggenerator-32.png" />
+        <bt:Image id="flaggenerator.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/flaggenerator-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="Commands.Url" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/taskpane.html" />
+        <bt:Url id="Flags.Url" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/flags.html" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Welcome to The Consultant Toolbox!" />
+        <bt:String id="Tab.Label" DefaultValue="The Consultant Toolbox" />
+        <bt:String id="TextGroup.Label" DefaultValue="Text" />
+        <bt:String id="EmptyTextBoxesButton.Label" DefaultValue="Empty Text Boxes" />
+        <bt:String id="EmptyEntireSlideButton.Label" DefaultValue="Empty Entire Slide" />
+        <bt:String id="SlideEffectsGroup.Label" DefaultValue="Shape Effects" />
+        <bt:String id="QuickTweaksGroup.Label" DefaultValue="Quick Tweaks" />
+        <bt:String id="SameSizeButton.Label" DefaultValue="Same Size" />
+        <bt:String id="SameHeightButton.Label" DefaultValue="Same Height" />
+        <bt:String id="SameWidthButton.Label" DefaultValue="Same Width" />
+        <bt:String id="StackHorizontal.Label" DefaultValue="Stack Horizontally" />
+        <bt:String id="StackVertical.Label" DefaultValue="Stack Vertically" />
+        <bt:String id="InvertPositions.Label" DefaultValue="Swap Positions" />
+        <bt:String id="CopyPosition.Label" DefaultValue="Copy Position" />
+        <bt:String id="PastePosition.Label" DefaultValue="Paste Position" />
+        <bt:String id="CopyDimensions.Label" DefaultValue="Copy Dimensions" />
+        <bt:String id="PasteDimensions.Label" DefaultValue="Paste Dimensions" />
+        <bt:String id="AutoFitShapeToText.Label" DefaultValue="Auto Fit Shape" />
+        <bt:String id="AutoFitTextToShape.Label" DefaultValue="Auto Fit Text" />
+        <bt:String id="RemoveMargins.Label" DefaultValue="Remove Margins" />
+        <bt:String id="WrapText.Label" DefaultValue="Wrap/Unwrap Text" />
+        <bt:String id="HarveyBalls.Label" DefaultValue="Harvey Balls &amp; Signs" />
+        <bt:String id="HarveyBall0.Label" DefaultValue="&#8203;" />
+        <bt:String id="HarveyBall25.Label" DefaultValue="&#8203;" />
+        <bt:String id="HarveyBall50r.Label" DefaultValue="&#8203;" />
+        <bt:String id="HarveyBall50l.Label" DefaultValue="&#8203;" />
+        <bt:String id="HarveyBall75.Label" DefaultValue="&#8203;" />
+        <bt:String id="HarveyBall100.Label" DefaultValue="&#8203;" />
+        <bt:String id="GreenLight.Label" DefaultValue="&#8203;" />
+        <bt:String id="OrangeLight.Label" DefaultValue="&#8203;" />
+        <bt:String id="RedLight.Label" DefaultValue="&#8203;" />
+        <bt:String id="UpArrow.Label" DefaultValue="&#8203;" />
+        <bt:String id="DownArrow.Label" DefaultValue="&#8203;" />
+        <bt:String id="EqualsSign.Label" DefaultValue="&#8203;" />
+        <bt:String id="ClipboardGroup.Label" DefaultValue="Insertions" />
+        <bt:String id="CopyStoryline.Label" DefaultValue="Post-It" />
+        <bt:String id="InsertFootnote.Label" DefaultValue="Footnote" />
+        <bt:String id="InsertPrelim.Label" DefaultValue="Preliminary" />
+        <bt:String id="InsertExample.Label" DefaultValue="Example" />
+        <bt:String id="InsertExecSum.Label" DefaultValue="Executive Summary" />
+        <bt:String id="InsertDraft.Label" DefaultValue="Draft" />
+        <bt:String id="BulletsGroup.Label" DefaultValue="Bullet Points" />
+        <bt:String id="FlagGenerator.Label" DefaultValue="Insert Flag" />
+        <bt:String id="TaskPaneGroup.Label" DefaultValue="Task Pane Tools" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="Click a button to start using The Consultant Toolbox." />
+        <bt:String id="EmptyTextBoxesButton.Tooltip" DefaultValue="Clear content from selected text boxes." />
+        <bt:String id="EmptyEntireSlideButton.Tooltip" DefaultValue="Clear all text content from the current slide." />
+        <bt:String id="SameSizeButton.Tooltip" DefaultValue="Reshapes the selected items to the same size as the first selected." />
+        <bt:String id="SameHeightButton.Tooltip" DefaultValue="Reshapes the selected items to the same height as the first selected." />
+        <bt:String id="SameWidthButton.Tooltip" DefaultValue="Reshapes the selected items to the same width as the first selected." />
+        <bt:String id="StackHorizontal.Tooltip" DefaultValue="Stacks selection horizontally." />
+        <bt:String id="StackVertical.Tooltip" DefaultValue="Stacks selection vertically." />
+        <bt:String id="InvertPositions.Tooltip" DefaultValue="Swaps positions of two selected items." />
+        <bt:String id="CopyPosition.Tooltip" DefaultValue="Copies the position of a selected item, in order to paste it later." />
+        <bt:String id="PastePosition.Tooltip" DefaultValue="Puts the object selected in the position copied previously." />
+        <bt:String id="CopyDimensions.Tooltip" DefaultValue="Copies the dimensions of a selected item, in order to paste it later." />
+        <bt:String id="PasteDimensions.Tooltip" DefaultValue="Puts the object into the dimensions copied previously." />
+        <bt:String id="AutoFitShapeToText.Tooltip" DefaultValue="Resizes the shape so that its boundaries match the text content." />
+        <bt:String id="AutoFitTextToShape.Tooltip" DefaultValue="Shrinks (or otherwise adjusts) the text so that it fits within the current shape size." />
+        <bt:String id="RemoveMargins.Tooltip" DefaultValue="Remove margins from selected items." />
+        <bt:String id="WrapText.Tooltip" DefaultValue="Wraps and unwraps text from selected items." />
+        <bt:String id="HarveyBall0.Tooltip" DefaultValue="Insert Harvey Ball (0%)." />
+        <bt:String id="HarveyBall25.Tooltip" DefaultValue="Insert Harvey Ball (25%)." />
+        <bt:String id="HarveyBall50r.Tooltip" DefaultValue="Insert Harvey Ball (50% right)." />
+        <bt:String id="HarveyBall50l.Tooltip" DefaultValue="Insert Harvey Ball (50% left)." />
+        <bt:String id="HarveyBall75.Tooltip" DefaultValue="Insert Harvey Ball (75%)." />
+        <bt:String id="HarveyBall100.Tooltip" DefaultValue="Insert Harvey Ball (100%)." />
+        <bt:String id="GreenLight.Tooltip" DefaultValue="Insert Green Light." />
+        <bt:String id="OrangeLight.Tooltip" DefaultValue="Insert Orange Light." />
+        <bt:String id="RedLight.Tooltip" DefaultValue="Insert Red Light." />
+        <bt:String id="UpArrow.Tooltip" DefaultValue="Insert Up Arrow." />
+        <bt:String id="DownArrow.Tooltip" DefaultValue="Insert Down Arrow." />
+        <bt:String id="EqualsSign.Tooltip" DefaultValue="Insert Equals Sign." />
+        <bt:String id="CopyStoryline.Tooltip" DefaultValue="Creates a Post-It within the slide." />
+        <bt:String id="InsertFootnote.Tooltip" DefaultValue="Creates a footnote within the slide." />
+        <bt:String id="InsertPrelim.Tooltip" DefaultValue="Insert a preliminary tag." />
+        <bt:String id="InsertExample.Tooltip" DefaultValue="Insert an example tag." />
+        <bt:String id="InsertExecSum.Tooltip" DefaultValue="Insert an executive summary tag." />
+        <bt:String id="InsertDraft.Tooltip" DefaultValue="Insert a draft tag." />
+        <bt:String id="FlagGenerator.Tooltip" DefaultValue="Insert a country flag." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
