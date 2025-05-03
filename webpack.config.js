@@ -46,7 +46,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "taskpane.html",
       template: "./src/taskpane/taskpane.html",
-      chunks: ["polyfill", "taskpane"],
     }),
     new HtmlWebpackPlugin({
       filename: "commands.html",
