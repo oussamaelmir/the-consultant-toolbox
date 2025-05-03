@@ -64,7 +64,7 @@ module.exports = {
           from: "assets/*",
           to: "assets/[name][ext]",
         },
-        { from: "src/support/index.html", to: "support.html" },
+        { from: "src/support/index.html", to: "support/index.html" },
         {
           from: "manifest*.xml",
           to: "[name][ext]",
