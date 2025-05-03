@@ -45,17 +45,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: "taskpane.html",
-      template: "./src/taskpane/taskpane.html",
+      template: "src/taskpane/taskpane.html",
       chunks: ["polyfill", "taskpane"],
     }),
     new HtmlWebpackPlugin({
       filename: "commands.html",
-      template: "./src/commands/commands.html",
+      template: "src/commands/commands.html",
       chunks: ["polyfill", "commands"],
     }),
     new HtmlWebpackPlugin({
       filename: "flags.html",
-      template: "./src/flags/flags.html",
+      template: "src/flags/flags.html",
       chunks: ["polyfill", "flags"],
     }),
     new CopyWebpackPlugin({
@@ -64,8 +64,8 @@ module.exports = {
           from: "assets/*",
           to: "assets/[name][ext]",
         },
-        { from: "src/support/index.html", to: "support" },
-        { from: "src/privacy/index.html", to: "privacy" },
+        { from: "src/support/support.html", to: "support.html" },
+        { from: "src/privacy/support.html", to: "privacy.html" },
         { from: "web.config", to: "web.config" },
         {
           from: "manifest*.xml",
