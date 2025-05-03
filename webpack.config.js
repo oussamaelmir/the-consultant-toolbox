@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const urlDev = "https://localhost:58706/";
-const urlProd = "the-consultant-toolbox.azurewebsites.net"; 
+const urlProd = "https://the-consultant-toolbox.azurewebsites.net"; 
 
 module.exports = {
   mode: "production",
