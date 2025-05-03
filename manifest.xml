@@ -13,7 +13,7 @@
   <Description DefaultValue="The Consultant Toolbox Add-in" />
   <IconUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/smartcontracts-32.png" />
   <HighResolutionIconUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/smartcontracts-64.png" />
-  <SupportUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/support.html" />
+  <SupportUrl DefaultValue="https://the-consultant-toolbox.azurewebsites.net/support" />
 
   <AppDomains>
     <AppDomain>https://the-consultant-toolbox.azurewebsites.net</AppDomain>
