@@ -1,4 +1,4 @@
-# GitHub Actions workflow to build and deploy ONLY dist/ to Azure Web App
+# GitHub Actions workflow to build and deploy Node.js app (with Express server) to Azure Web App
 name: Build and deploy Node.js app to Azure Web App - the-consultant-toolbox
 
 on:
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: Production
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write
@@ -51,6 +51,10 @@ jobs:
           name: node-app
           path: dist
 
+      - name: Move dist/ into repo root
+        run: |
+          cp -R dist/* .
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -58,9 +62,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_821A370962584F6C816CBA50460C2188 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_520BDFA4DF4D49D7A68EE05EF1421341 }}
 
-      - name: Deploy dist/ to Azure Web App
+      - name: Deploy entire app to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'the-consultant-toolbox'
-          slot-name: 'Production'
-          package: dist
+          app-name: the-consultant-toolbox
+          slot-name: Production
+          package: .
