@@ -201,82 +201,74 @@ interface Country {
   ];
   
   function initialize() {
-    console.log("Initializing Flag Generator...");
-    populateDropdown();
-    setupDropdownChange();
+    populateDatalist();
+    setupInputEvents();
   }
   
-  function populateDropdown() {
-    const selectElem = document.getElementById("countrySelect") as HTMLSelectElement;
-    if (!selectElem) {
-      console.error("Dropdown element 'countrySelect' not found.");
-      return;
-    }
-    // Clear any existing options.
-    selectElem.innerHTML = "";
-    // Add a default option.
-    const defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.textContent = "Select a country";
-    selectElem.appendChild(defaultOption);
-    // Add an option for each country.
-    countries.forEach((country) => {
-      const option = document.createElement("option");
-      option.value = country.code;
-      option.textContent = country.name;
-      selectElem.appendChild(option);
+  function populateDatalist() {
+    const list = document.getElementById("countryList") as HTMLDataListElement;
+    list.innerHTML = "";
+    countries.forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c.name;
+      list.appendChild(opt);
     });
-    console.log("Dropdown populated with", countries.length, "countries.");
   }
   
-  function setupDropdownChange() {
-    const selectElem = document.getElementById("countrySelect") as HTMLSelectElement;
-    if (!selectElem) {
-      console.error("Dropdown element 'countrySelect' not found.");
-      return;
-    }
-    selectElem.addEventListener("change", () => {
-      const selectedCode = selectElem.value;
-      if (!selectedCode) {
+  function setupInputEvents() {
+    const input = document.getElementById("countryInput") as HTMLInputElement;
+    if (!input) return;
+  
+    // typing / selecting
+    input.addEventListener("input", () => {
+      const txt = input.value.trim();
+      const country = countries.find(c => c.name.toLowerCase() === txt.toLowerCase());
+      if (country) {
+        const url = `https://flagcdn.com/w1280/${country.code}.png`;
+        displayFlag(country.name, url);
+      } else {
         hideFlagPreview();
-        return;
       }
-      // Construct the flag URL using FlagCDN with a width of 320.
-      const flagUrl = `https://flagcdn.com/w1280/${selectedCode.toLowerCase()}.png`;
-      console.log("Selected country code:", selectedCode, "Flag URL:", flagUrl);
-      displayFlag(selectElem.options[selectElem.selectedIndex].text, flagUrl);
+    });
+  
+    // drag & drop
+    input.addEventListener("dragover", e => e.preventDefault());
+    input.addEventListener("dragenter", e => {
+      e.preventDefault();
+      input.classList.add("drag-over");
+    });
+    input.addEventListener("dragleave", () => {
+      input.classList.remove("drag-over");
+    });
+    input.addEventListener("drop", e => {
+      e.preventDefault();
+      input.classList.remove("drag-over");
+      const text = e.dataTransfer?.getData("text/plain") || "";
+      input.value = text;
+      const country = countries.find(c => c.name.toLowerCase() === text.toLowerCase());
+      if (country) {
+        const url = `https://flagcdn.com/w1280/${country.code}.png`;
+        displayFlag(country.name, url);
+      }
     });
   }
   
+  // existing functions below
   function displayFlag(countryName: string, flagUrl: string) {
-    const flagSection = document.getElementById("flagSection");
-    const flagTitle = document.getElementById("flagTitle");
-    const flagImage = document.getElementById("flagImage") as HTMLImageElement;
-    if (flagSection && flagTitle && flagImage) {
-      flagTitle.textContent = countryName;
-      flagImage.src = flagUrl;
-      flagImage.alt = `${countryName} Flag`;
-      flagSection.classList.remove("hidden");
-    } else {
-      console.error("Flag preview elements not found.");
+    const section = document.getElementById("flagSection");
+    const title   = document.getElementById("flagTitle");
+    const img     = document.getElementById("flagImage") as HTMLImageElement;
+    if (section && title && img) {
+      title.textContent = countryName;
+      img.src           = flagUrl;
+      img.alt           = `${countryName} Flag`;
+      section.classList.remove("hidden");
     }
   }
   
   function hideFlagPreview() {
-    const flagSection = document.getElementById("flagSection");
-    if (flagSection) {
-      flagSection.classList.add("hidden");
-    }
+    document.getElementById("flagSection")?.classList.add("hidden");
   }
   
-  // Use DOMContentLoaded as a fallback, then Office.onReady.
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM fully loaded. Initializing...");
-    initialize();
-  });
-  
-  Office.onReady(() => {
-    console.log("Office is ready. Initializing...");
-    initialize();
-  });
+  document.addEventListener("DOMContentLoaded", initialize);
   

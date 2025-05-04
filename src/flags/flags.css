@@ -30,7 +30,6 @@ body {
   display: flex;
   justify-content: center;
   text-align: center; /* Fallback for IE < 11 */
-  justify-content: center;
   align-items: center;
 }
 
