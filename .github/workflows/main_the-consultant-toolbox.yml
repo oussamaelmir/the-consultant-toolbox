@@ -67,10 +67,20 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_821A370962584F6C816CBA50460C2188 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_520BDFA4DF4D49D7A68EE05EF1421341 }}
 
-      # 5) Deploy everything (package.json, server.js, dist/, etc.) into wwwroot
+      # 5) Configure the App Service to run your Express server on startup
+      - name: Configure Startup Command
+        run: |
+          az webapp config set \
+            --resource-group the-consultant-toolbox_group \
+            --name the-consultant-toolbox \
+            --startup-file "cd /home/site/wwwroot && npm install && npm start"
+
+      # 6) Deploy everything (package.json, server.js, dist/, etc.) into wwwroot
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: the-consultant-toolbox
           slot-name: Production
           package: .
+
+          
