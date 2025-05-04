@@ -1,4 +1,4 @@
-# GitHub Actions workflow to build and deploy Node.js app (with Express server) to Azure Web App
+# GitHub Actions workflow to build and deploy Node.js + Express app to Azure Web App
 name: Build and deploy Node.js app to Azure Web App - the-consultant-toolbox
 
 on:
@@ -37,24 +37,29 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: Production
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    environment: Production
     permissions:
       id-token: write
       contents: read
 
     steps:
-      - name: Download artifact from build job
+      # 1) Bring down your full repo so package.json & server.js are here
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2) Pull in the dist/ folder from the build job
+      - name: Download dist artifact
         uses: actions/download-artifact@v4
         with:
           name: node-app
           path: dist
 
-      - name: Move dist/ into repo root
+      # 3) Copy dist/ contents over the repo root
+      - name: Merge dist into root
         run: |
           cp -R dist/* .
-      
+
+      # 4) Azure login (using your SPN secrets)
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -62,7 +67,8 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_821A370962584F6C816CBA50460C2188 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_520BDFA4DF4D49D7A68EE05EF1421341 }}
 
-      - name: Deploy entire app to Azure Web App
+      # 5) Deploy everything (package.json, server.js, dist/, etc.) into wwwroot
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: the-consultant-toolbox
