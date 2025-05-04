@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const urlDev = "https://localhost:60367/";
-const urlProd = "https://the-consultant-toolbox.azurewebsites.net"; 
+const urlProd = "https://the-consultant-toolbox.azurewebsites.net";
 
 module.exports = {
   mode: "production",
@@ -16,8 +16,8 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    clean: true, // cleans old build files
-    publicPath: "", // Ensures relative loading
+    clean: true,
+    publicPath: "", // Important for relative paths
   },
   resolve: {
     extensions: [".ts", ".html", ".js"],
@@ -45,28 +45,32 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: "taskpane.html",
-      template: "src/taskpane/taskpane.html",
+      template: "./src/taskpane/taskpane.html",
       chunks: ["polyfill", "taskpane"],
     }),
     new HtmlWebpackPlugin({
       filename: "commands.html",
-      template: "src/commands/commands.html",
+      template: "./src/commands/commands.html",
       chunks: ["polyfill", "commands"],
     }),
     new HtmlWebpackPlugin({
       filename: "flags.html",
-      template: "src/flags/flags.html",
+      template: "./src/flags/flags.html",
       chunks: ["polyfill", "flags"],
     }),
     new CopyWebpackPlugin({
       patterns: [
-        {
-          from: "assets/*",
-          to: "assets/[name][ext]",
-        },
+        // ✅ Static images and assets
+        { from: "assets/*", to: "assets/[name][ext]" },
+
+        // ✅ Standalone pages under folders
         { from: "src/support/index.html", to: "support/index.html" },
         { from: "src/privacy/index.html", to: "privacy/index.html" },
+
+        // ✅ Static web.config (optional on Linux, required on Windows only)
         { from: "web.config", to: "web.config" },
+
+        // ✅ Manifest for Office Add-in, with environment URL replacement
         {
           from: "manifest*.xml",
           to: "[name][ext]",
