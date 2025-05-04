@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "serve -s /home/site/wwwroot -l 8080",
+    "build": "webpack --mode production --config webpack.config.js",
+    "start": "node server.js",
     "clean": "rm -rf dist",
     "zip": "npm run build && cd dist && zip -r ../smart-controls-prod.zip .",
     "validate": "office-addin-manifest validate manifest.xml"
   },
   "dependencies": {
     "core-js": "^3.36.0",
+    "express": "^5.1.0",
     "regenerator-runtime": "^0.14.1",
     "serve": "^14.2.4"
   },
