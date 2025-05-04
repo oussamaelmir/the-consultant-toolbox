@@ -3,11 +3,11 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Serve all static files from wwwroot
-app.use(express.static(path.join(__dirname, 'wwwroot')));
+// Serve everything directly from the root of the deployed folder
+app.use(express.static(__dirname));
 
-// Listen on Azure’s assigned port
+// If you ever want a catch-all (e.g. for SPA), you can uncomment this:
+// app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
 const port = process.env.PORT || 8080;
-app.listen(port, () =>
-  console.log(`Static server running on port ${port}`)
-);
+app.listen(port, () => console.log(`Listening on ${port}`));
