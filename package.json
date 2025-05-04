@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "start": "node server.js",
     "clean": "rm -rf dist",
     "zip": "npm run build && cd dist && zip -r ../smart-controls-prod.zip .",
