@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "npx serve -s dist",
+    "start": "serve -s /home/site/wwwroot -l 8080",
     "clean": "rm -rf dist",
     "zip": "npm run build && cd dist && zip -r ../smart-controls-prod.zip .",
     "validate": "office-addin-manifest validate manifest.xml"
