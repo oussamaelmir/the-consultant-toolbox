@@ -692,7 +692,7 @@
                     <bt:Image size="80" resid="flaggenerator.80x80" />
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="Taskpane.Url"/>
+                    <SourceLocation resid="Flags.Url"/>
                   </Action>
                 </Control>
 
@@ -811,7 +811,7 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Welcome to The Consultant Toolbox!" />
-        <bt:String id="Tab.Label" DefaultValue="The Consultant Toolbox" />ß
+        <bt:String id="Tab.Label" DefaultValue="The Consultant Toolbox" />
         <bt:String id="TextGroup.Label" DefaultValue="Text" />
         <bt:String id="EmptyTextBoxesButton.Label" DefaultValue="Empty Text Boxes" />
         <bt:String id="EmptyEntireSlideButton.Label" DefaultValue="Empty Entire Slide" />
