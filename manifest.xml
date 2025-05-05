@@ -51,6 +51,24 @@
                   <bt:Image size="80" resid="emptytextboxes.80x80" />
                 </Icon>
 
+                <!-- HOME button (first ShowTaskpane) -->
+                <Control xsi:type="Button" id="HomeTaskpane">
+                  <Label resid="HomeTaskpane.Label"/>
+                  <Supertip>
+                    <Title resid="HomeTaskpane.Label"/>
+                    <Description resid="HomeTaskpane.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <!-- use your briefcase-2 icon -->
+                    <bt:Image size="16" resid="briefcase.16x16"/>
+                    <bt:Image size="32" resid="briefcase.32x32"/>
+                    <bt:Image size="80" resid="briefcase.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+
                 <!-- Empty Text Boxes button -->
                 <Control xsi:type="Button" id="EmptyTextBoxesButton">
                   <Label resid="EmptyTextBoxesButton.Label" />
@@ -706,6 +724,9 @@
 
     <Resources>
       <bt:Images>
+        <bt:Image id="briefcase.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/briefcase-16.png" />
+        <bt:Image id="briefcase.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/briefcase-32.png" />
+        <bt:Image id="briefcase.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/briefcase-80.png" />
         <bt:Image id="emptytextboxes.16x16" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-16.png" />
         <bt:Image id="emptytextboxes.32x32" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-32.png" />
         <bt:Image id="emptytextboxes.80x80" DefaultValue="https://the-consultant-toolbox.azurewebsites.net/assets/emptytextboxes-80.png" />
@@ -854,6 +875,7 @@
         <bt:String id="BulletsGroup.Label" DefaultValue="Bullet Points" />
         <bt:String id="FlagGenerator.Label" DefaultValue="Insert Flag" />
         <bt:String id="TaskPaneGroup.Label" DefaultValue="Task Pane Tools" />
+        <bt:String id="HomeTaskpane.Label" DefaultValue="Home" />
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Click a button to start using The Consultant Toolbox." />
@@ -892,6 +914,7 @@
         <bt:String id="InsertExecSum.Tooltip" DefaultValue="Insert an executive summary tag." />
         <bt:String id="InsertDraft.Tooltip" DefaultValue="Insert a draft tag." />
         <bt:String id="FlagGenerator.Tooltip" DefaultValue="Insert a country flag." />
+        <bt:String id="HomeTaskpane.Tooltip" DefaultValue="Go to The Consultant Toolbox home screen" />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

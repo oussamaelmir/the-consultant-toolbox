@@ -25,6 +25,7 @@ html, body { width:100%; height:100%; margin:0; padding:0; }
   color: #005f74;
 }
 .ms-welcome__subhead {
+  font-style: italic;
   margin: 0 0 24px;
   color: #212121;
 }
