@@ -1,16 +1,14 @@
-/* taskpane.ts /
-/ global document, Office */
-
+/* global document, Office */
 Office.onReady(async (info) => {
   if (info.host === Office.HostType.PowerPoint) {
-  const btn = document.getElementById('getStartedBtn');
-  btn?.addEventListener('click', async () => {
-  try {
-  // Close the task pane as if the user clicked the X
-  await Office.addin.hide();
-  } catch (error) {
-  console.error('Office.addin.hide() failed', error);
+    const btn = document.getElementById('getStartedBtn');
+    btn?.addEventListener('click', async () => {
+      try {
+        // This will hide/close the pane just as if the user clicked the X
+        await Office.addin.hide();
+      } catch (err) {
+        console.error('Hide API not available, fallback if needed', err);
+      }
+    });
   }
-  });
-  }
-  });
+});
