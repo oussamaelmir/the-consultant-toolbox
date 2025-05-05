@@ -1,25 +1,27 @@
 /* global document, Office */
 Office.onReady((info) => {
   if (info.host === Office.HostType.PowerPoint) {
-    // Hook up 'Get Started' button
-    const btn = document.getElementById('getStartedBtn');
-    btn?.addEventListener('click', () => {
-      // Navigate to your flags UI
+    // Show overlay only on first run
+    const seen = localStorage.getItem('ctb_firstRun');
+    const overlay = document.getElementById('firstRunOverlay')!;
+    const btn = document.getElementById('getStartedBtn')!;
+    if (!seen) {
+      overlay.style.display = 'flex';
+    } else {
+      overlay.style.display = 'none';
+      showAppBody();
+    }
+    btn.addEventListener('click', () => {
+      localStorage.setItem('ctb_firstRun','1');
+      overlay.style.display = 'none';
+      showAppBody();
+      // Navigate to flags picker
       window.location.href = 'flags.html';
     });
-
-    // Show the rest of your page only after first-run placemat is gone (if desired)
-    const app = document.getElementById('app-body');
-    const sideload = document.getElementById('sideload-msg');
-    if (app && sideload) {
-      sideload.style.display = 'none';
-      app.style.display = 'flex';
-      document.getElementById('run')!.onclick = run;
-    }
   }
 });
 
-export async function run() {
-  const options: Office.SetSelectedDataOptions = { coercionType: Office.CoercionType.Text };
-  await Office.context.document.setSelectedDataAsync('Hello World!', options);
+function showAppBody() {
+  document.getElementById('sideload-msg')!.style.display = 'none';
+  document.getElementById('app-body')!.style.display = 'flex';
 }
