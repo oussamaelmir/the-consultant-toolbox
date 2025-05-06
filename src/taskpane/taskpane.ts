@@ -1,13 +1,23 @@
+import { createPostItNote } from "../commands/commands"; 
+// adjust the path if your commands file lives elsewhere
+
 /* global document, Office */
-Office.onReady(async (info) => {
+Office.onReady((info) => {
   if (info.host === Office.HostType.PowerPoint) {
     const btn = document.getElementById('getStartedBtn');
     btn?.addEventListener('click', async () => {
+      // fake up the Event object with a no-op completed()
+      const fakeEvent = {
+        completed: () => {
+          /* nothing to do */
+        }
+      } as Office.AddinCommands.Event;
+
+      // call your Post-It creation routine
       try {
-        // This will hide/close the pane just as if the user clicked the X
-        await Office.addin.hide();
+        await createPostItNote(fakeEvent);
       } catch (err) {
-        console.error('Hide API not available, fallback if needed', err);
+        console.error('Error in createPostItNote:', err);
       }
     });
   }
