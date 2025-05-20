@@ -39,52 +39,60 @@ Office.onReady(() => {
 
 export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
   console.log("emptyTextBoxes ▶ start");
+
   try {
     await PowerPoint.run(async (context) => {
       const selection = context.presentation.getSelectedShapes();
-      selection.load("items, items/name, items/type, items/id");
+      selection.load("items");
       await context.sync();
 
       if (selection.items.length === 0) {
         console.log("No shapes selected.");
         return;
       }
-      console.log(`✅ ${selection.items.length} shapes selected`);
 
+      console.log(`✅ ${selection.items.length} top-level shape(s) selected`);
+
+      // Recursive function to process any shape
+      async function clearTextFromShape(shape: PowerPoint.Shape, path = ""): Promise<void> {
+        try {
+          await shape.load("type, textFrame");
+          await context.sync();
+
+          if (shape.type === PowerPoint.ShapeType.group) {
+            const group = shape.group;
+            group.shapes.load("items");
+            await context.sync();
+
+            console.log(`📦 Group ${path} contains ${group.shapes.items.length} shapes`);
+            for (let i = 0; i < group.shapes.items.length; i++) {
+              const subShape = group.shapes.items[i];
+              await clearTextFromShape(subShape, `${path}>sub[${i}]`);
+            }
+          } else {
+            if (shape.textFrame) {
+              shape.load("textFrame/hasText");
+              await context.sync();
+
+              if (shape.textFrame.hasText) {
+                shape.textFrame.textRange.text = "";
+                console.log(`✂️ Cleared text from ${path}`);
+              } else {
+                console.log(`⛔ No text in ${path}`);
+              }
+            } else {
+              console.log(`❌ No textFrame in ${path}`);
+            }
+          }
+        } catch (err) {
+          console.warn(`⚠️ Skipped ${path} due to error:`, err);
+        }
+      }
+
+      // Iterate top-level selected shapes
       for (let i = 0; i < selection.items.length; i++) {
         const shape = selection.items[i];
-        console.log(`\n🔍 Shape[${i}] id=${shape.id} name="${shape.name}" type=${shape.type}`);
-
-        if (shape.type === PowerPoint.ShapeType.group) {
-          // — load the group’s shapes collection properly
-          const grp: PowerPoint.ShapeGroup = shape.group;
-          grp.shapes.load("items");     // ← changed here
-          await context.sync();
-
-          console.log(`  ↳ Group contains ${grp.shapes.items.length} sub-shapes`);
-          // load hasText on each sub-shape
-          grp.shapes.items.forEach(sub => sub.load("textFrame/hasText"));
-          await context.sync();
-
-          // clear text in each
-          grp.shapes.items.forEach((sub, j) => {
-            console.log(`    • Sub[${j}] id=${sub.id} hasText=${sub.textFrame.hasText}`);
-            if (sub.textFrame.hasText) {
-              sub.textFrame.textRange.text = "";
-              console.log(`      – CLEARED`);
-            }
-          });
-
-        } else {
-          // non-group
-          shape.load("textFrame/hasText");
-          await context.sync();
-          console.log(`  ↳ hasText=${shape.textFrame.hasText}`);
-          if (shape.textFrame.hasText) {
-            shape.textFrame.textRange.text = "";
-            console.log(`    – CLEARED`);
-          }
-        }
+        await clearTextFromShape(shape, `Shape[${i}]`);
       }
 
       await context.sync();
@@ -96,8 +104,6 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
     event.completed();
   }
 }
-
-
 
 export async function emptyEntireSlide(event: Office.AddinCommands.Event) {
   console.log("emptyEntireSlide button clicked!");
