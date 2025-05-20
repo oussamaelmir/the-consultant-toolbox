@@ -56,7 +56,7 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
       // Recursive function to process any shape
       async function clearTextFromShape(shape: PowerPoint.Shape, path = ""): Promise<void> {
         try {
-          await shape.load("type, textFrame");
+          shape.load("type");
           await context.sync();
 
           if (shape.type === PowerPoint.ShapeType.group) {
@@ -70,18 +70,25 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
               await clearTextFromShape(subShape, `${path}>sub[${i}]`);
             }
           } else {
-            if (shape.textFrame) {
-              shape.load("textFrame/hasText");
+            try {
+              shape.load("textFrame");
               await context.sync();
 
-              if (shape.textFrame.hasText) {
-                shape.textFrame.textRange.text = "";
-                console.log(`✂️ Cleared text from ${path}`);
+              if (shape.textFrame) {
+                shape.load("textFrame/hasText");
+                await context.sync();
+
+                if (shape.textFrame.hasText) {
+                  shape.textFrame.textRange.text = "";
+                  console.log(`✂️ Cleared text from ${path}`);
+                } else {
+                  console.log(`⛔ No text in ${path}`);
+                }
               } else {
-                console.log(`⛔ No text in ${path}`);
+                console.log(`❌ No textFrame in ${path}`);
               }
-            } else {
-              console.log(`❌ No textFrame in ${path}`);
+            } catch (textErr) {
+              console.warn(`⚠️ ${path} has no textFrame or caused error:`, textErr);
             }
           }
         } catch (err) {
