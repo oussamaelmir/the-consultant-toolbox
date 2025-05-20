@@ -113,7 +113,7 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
 }
 
 export async function emptyEntireSlide(event: Office.AddinCommands.Event) {
-  console.log("emptyEntireSlide button clicked!");
+  console.log("emptyEntireSlide ▶ start");
 
   try {
     await PowerPoint.run(async (context) => {
@@ -122,28 +122,71 @@ export async function emptyEntireSlide(event: Office.AddinCommands.Event) {
       await context.sync();
 
       if (selectedSlides.items.length === 0) {
-        console.log("No slide selected.");
-        event.completed();
+        console.log("⛔ No slide selected.");
         return;
       }
 
       const slide = selectedSlides.items[0];
       const shapes = slide.shapes;
-      shapes.load("items/textFrame/hasText");
+      shapes.load("items");
       await context.sync();
 
-      shapes.items.forEach((shape, i) => {
-        if (shape.textFrame && shape.textFrame.hasText) {
-          console.log(`Clearing shape #${i}`);
-          shape.textFrame.textRange.text = "";
+      console.log(`✅ ${shapes.items.length} shapes found on the slide`);
+
+      // Recursive function to process any shape
+      async function clearTextFromShape(shape: PowerPoint.Shape, path = ""): Promise<void> {
+        try {
+          shape.load("type");
+          await context.sync();
+
+          if (shape.type === PowerPoint.ShapeType.group) {
+            console.log(`📦 Entering group ${path}`);
+            const group: PowerPoint.ShapeGroup = shape.group;
+            group.shapes.load("items");
+            await context.sync();
+
+            for (let i = 0; i < group.shapes.items.length; i++) {
+              const subShape = group.shapes.items[i];
+              await clearTextFromShape(subShape, `${path}>sub[${i}]`);
+            }
+          } else {
+            try {
+              shape.load("textFrame");
+              await context.sync();
+
+              if (shape.textFrame) {
+                shape.load("textFrame/hasText");
+                await context.sync();
+
+                if (shape.textFrame.hasText) {
+                  shape.textFrame.textRange.text = "";
+                  console.log(`✂️ Cleared text from ${path}`);
+                } else {
+                  console.log(`⛔ No text in ${path}`);
+                }
+              } else {
+                console.log(`❌ No textFrame in ${path}`);
+              }
+            } catch (textErr) {
+              console.warn(`⚠️ ${path} has no textFrame or caused error:`, textErr);
+            }
+          }
+        } catch (err) {
+          console.warn(`⚠️ Skipped ${path} due to error:`, err);
         }
-      });
+      }
+
+      // Apply clearing to all shapes on the slide
+      for (let i = 0; i < shapes.items.length; i++) {
+        const shape = shapes.items[i];
+        await clearTextFromShape(shape, `SlideShape[${i}]`);
+      }
 
       await context.sync();
-      console.log("Text cleared from shapes on selected slide.");
+      console.log("✅ emptyEntireSlide ▶ done");
     });
   } catch (error) {
-    console.error("Error in emptyEntireSlide:", error);
+    console.error("🔥 Error in emptyEntireSlide:", error);
   } finally {
     event.completed();
   }
