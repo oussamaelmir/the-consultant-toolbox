@@ -56,17 +56,17 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
         console.log(`\n🔍 Shape[${i}] id=${shape.id} name="${shape.name}" type=${shape.type}`);
 
         if (shape.type === PowerPoint.ShapeType.group) {
-          // 1) Get the ShapeGroup object
+          // — load the group’s shapes collection properly
           const grp: PowerPoint.ShapeGroup = shape.group;
-          grp.load({ expand: "shapes" });
+          grp.shapes.load("items");     // ← changed here
           await context.sync();
 
           console.log(`  ↳ Group contains ${grp.shapes.items.length} sub-shapes`);
-          // 2) Load hasText on every sub-shape
+          // load hasText on each sub-shape
           grp.shapes.items.forEach(sub => sub.load("textFrame/hasText"));
           await context.sync();
 
-          // 3) Clear text in each sub-shape if it has any
+          // clear text in each
           grp.shapes.items.forEach((sub, j) => {
             console.log(`    • Sub[${j}] id=${sub.id} hasText=${sub.textFrame.hasText}`);
             if (sub.textFrame.hasText) {
@@ -76,7 +76,7 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
           });
 
         } else {
-          // Non-group: just load its hasText
+          // non-group
           shape.load("textFrame/hasText");
           await context.sync();
           console.log(`  ↳ hasText=${shape.textFrame.hasText}`);
@@ -87,7 +87,6 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
         }
       }
 
-      // 4) Final sync to apply all edits
       await context.sync();
       console.log("✅ emptyTextBoxes ▶ done");
     });
@@ -97,6 +96,7 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
     event.completed();
   }
 }
+
 
 
 export async function emptyEntireSlide(event: Office.AddinCommands.Event) {
