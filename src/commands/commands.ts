@@ -38,36 +38,66 @@ Office.onReady(() => {
 });
 
 export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
-  console.log("emptyTextBoxes button clicked!");
-
+  console.log("emptyTextBoxes ▶ start");
   try {
     await PowerPoint.run(async (context) => {
-      const selectedShapes = context.presentation.getSelectedShapes();
-      selectedShapes.load("items/textFrame/hasText");
+      const selection = context.presentation.getSelectedShapes();
+      selection.load("items, items/name, items/type, items/id");
       await context.sync();
 
-      if (selectedShapes.items.length === 0) {
+      if (selection.items.length === 0) {
         console.log("No shapes selected.");
-        event.completed();
         return;
       }
+      console.log(`✅ ${selection.items.length} shapes selected`);
 
-      selectedShapes.items.forEach((shape, i) => {
-        if (shape.textFrame && shape.textFrame.hasText) {
-          console.log(`Clearing text in selected shape #${i}`);
-          shape.textFrame.textRange.text = "";
+      for (let i = 0; i < selection.items.length; i++) {
+        const shape = selection.items[i];
+        console.log(`\n🔍 Shape[${i}] id=${shape.id} name="${shape.name}" type=${shape.type}`);
+
+        if (shape.type === PowerPoint.ShapeType.group) {
+          // 1) Get the ShapeGroup object
+          const grp: PowerPoint.ShapeGroup = shape.group;
+          grp.load({ expand: "shapes" });
+          await context.sync();
+
+          console.log(`  ↳ Group contains ${grp.shapes.items.length} sub-shapes`);
+          // 2) Load hasText on every sub-shape
+          grp.shapes.items.forEach(sub => sub.load("textFrame/hasText"));
+          await context.sync();
+
+          // 3) Clear text in each sub-shape if it has any
+          grp.shapes.items.forEach((sub, j) => {
+            console.log(`    • Sub[${j}] id=${sub.id} hasText=${sub.textFrame.hasText}`);
+            if (sub.textFrame.hasText) {
+              sub.textFrame.textRange.text = "";
+              console.log(`      – CLEARED`);
+            }
+          });
+
+        } else {
+          // Non-group: just load its hasText
+          shape.load("textFrame/hasText");
+          await context.sync();
+          console.log(`  ↳ hasText=${shape.textFrame.hasText}`);
+          if (shape.textFrame.hasText) {
+            shape.textFrame.textRange.text = "";
+            console.log(`    – CLEARED`);
+          }
         }
-      });
+      }
 
+      // 4) Final sync to apply all edits
       await context.sync();
-      console.log("Text cleared from selected shapes.");
+      console.log("✅ emptyTextBoxes ▶ done");
     });
-  } catch (error) {
-    console.error("Error in emptyTextBoxes:", error);
+  } catch (err) {
+    console.error("🔥 Fatal error in emptyTextBoxes:", err);
   } finally {
     event.completed();
   }
 }
+
 
 export async function emptyEntireSlide(event: Office.AddinCommands.Event) {
   console.log("emptyEntireSlide button clicked!");

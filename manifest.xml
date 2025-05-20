@@ -6,7 +6,7 @@
   xsi:type="TaskPaneApp">
 
   <Id>1d88bdbc-5f38-4d4b-bb55-5f2074c1fb4f</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.0.1</Version>
   <ProviderName>Medjool Star</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="The Consultant Toolbox" />
