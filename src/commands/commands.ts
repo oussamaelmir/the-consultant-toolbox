@@ -60,11 +60,11 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
           await context.sync();
 
           if (shape.type === PowerPoint.ShapeType.group) {
-            const group = shape.group;
+            console.log(`📦 Entering group ${path}`);
+            const group: PowerPoint.ShapeGroup = shape.group;
             group.shapes.load("items");
             await context.sync();
 
-            console.log(`📦 Group ${path} contains ${group.shapes.items.length} shapes`);
             for (let i = 0; i < group.shapes.items.length; i++) {
               const subShape = group.shapes.items[i];
               await clearTextFromShape(subShape, `${path}>sub[${i}]`);
@@ -89,10 +89,9 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
         }
       }
 
-      // Iterate top-level selected shapes
+      // Iterate over top-level shapes
       for (let i = 0; i < selection.items.length; i++) {
-        const shape = selection.items[i];
-        await clearTextFromShape(shape, `Shape[${i}]`);
+        await clearTextFromShape(selection.items[i], `Shape[${i}]`);
       }
 
       await context.sync();
