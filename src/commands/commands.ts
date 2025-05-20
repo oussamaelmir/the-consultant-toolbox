@@ -89,9 +89,10 @@ export async function emptyTextBoxes(event: Office.AddinCommands.Event) {
         }
       }
 
-      // Iterate over top-level shapes
+      // Recursively process every top-level shape in the selection
       for (let i = 0; i < selection.items.length; i++) {
-        await clearTextFromShape(selection.items[i], `Shape[${i}]`);
+        const shape = selection.items[i];
+        await clearTextFromShape(shape, `Shape[${i}]`);
       }
 
       await context.sync();
