@@ -1589,7 +1589,7 @@ export async function createPostItNote(event: Office.AddinCommands.Event) {
       // Set the fill color to #E6BD01.
       // postIt.fill.setSolidColor("#E6BD01");
 
-      postIt.fill.setImage("../../assets/postit.png");
+      postIt.fill.setImage("https://the-consultant-toolbox.azurewebsites.net/assets/postit.png");
 
       // Set the text inside the shape to be black.
       postIt.textFrame.textRange.font.color = "black";
