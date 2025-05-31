@@ -1547,8 +1547,27 @@ export async function insertEqualsSign(event: Office.AddinCommands.Event) {
   }
 }
 
+async function getBase64FromUrl(url: string): Promise<string> {
+  const response = await fetch(url);
+  const blob = await response.blob();
+
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64data = reader.result as string;
+      // Strip off "data:image/png;base64," so it works with setImage
+      const base64Only = base64data.split(",")[1];
+      resolve(base64Only);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
 export async function createPostItNote(event: Office.AddinCommands.Event) {
   try {
+    const base64Image = await getBase64FromUrl("https://the-consultant-toolbox.azurewebsites.net/assets/postit.png");
+
     await PowerPoint.run(async (context) => {
       // Retrieve the currently selected slides.
       const slides = context.presentation.getSelectedSlides();
@@ -1589,7 +1608,7 @@ export async function createPostItNote(event: Office.AddinCommands.Event) {
       // Set the fill color to #E6BD01.
       // postIt.fill.setSolidColor("#E6BD01");
 
-      postIt.fill.setImage("https://the-consultant-toolbox.azurewebsites.net/assets/postit.png");
+      await postIt.fill.setImage(base64Image);
 
       // Set the text inside the shape to be black.
       postIt.textFrame.textRange.font.color = "black";
