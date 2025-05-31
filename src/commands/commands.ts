@@ -1615,6 +1615,12 @@ export async function createPostItNote(event: Office.AddinCommands.Event) {
       postIt.textFrame.textRange.font.bold = false;
       postIt.textFrame.textRange.paragraphFormat.horizontalAlignment = "Left";
 
+      // Apply text margins (in points)
+      postIt.textFrame.topMargin = 11.3;     // ~0.4 cm
+      postIt.textFrame.bottomMargin = 11.3;  // ~0.4 cm
+      postIt.textFrame.leftMargin = 14.2;    // ~0.5 cm
+      postIt.textFrame.rightMargin = 19.8;   // ~0.7 cm
+
       // Optionally, hide the border.
       postIt.lineFormat.visible = false;
 
