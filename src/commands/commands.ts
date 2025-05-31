@@ -1587,10 +1587,14 @@ export async function createPostItNote(event: Office.AddinCommands.Event) {
       postIt.top = noteTop;
 
       // Set the fill color to #E6BD01.
-      postIt.fill.setSolidColor("#E6BD01");
+      // postIt.fill.setSolidColor("#E6BD01");
+
+      postIt.fill.setImage("../assets/postit.png");
 
       // Set the text inside the shape to be black.
       postIt.textFrame.textRange.font.color = "black";
+      postIt.textFrame.textRange.font.bold = false;
+      postIt.textFrame.textRange.paragraphFormat.horizontalAlignment = "Left";
 
       // Optionally, hide the border.
       postIt.lineFormat.visible = false;
